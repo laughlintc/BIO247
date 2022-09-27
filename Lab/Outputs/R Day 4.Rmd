@@ -1,0 +1,78 @@
+---
+title: "R Day 4 Exercise 1"
+author: "Ty"
+date: '2022-09-20'
+output: html_document
+---
+
+```{r}
+#shirt <- "red"
+#shirt <- "blue"
+shirt <- "yellow"
+#shirt <- "green"
+```
+
+
+
+```{r}
+if (shirt == "red") {
+  print("eat eggs")
+} else if (shirt == "yellow") {
+  print("eat banana")
+} else if (shirt == "green") {
+  print("eat broccoli")
+} else if (shirt == "blue") {
+  print("eat blueberries")
+} else {
+  print("eat yogurt")
+}
+```
+
+
+```{r}
+stop <- sample (1:1000, 1)
+```
+
+
+```{r}
+num = 0
+while (num < stop){
+  stop <- sample (1:1000, 1)
+}
+
+print("Pop goes the weasel")
+```
+
+
+
+Counting Papers
+
+```{r}
+PaperIDs <- unlist(Test_V_output$Paper.ID)
+UniquePapers <- strsplit(PaperIDs, ",")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
