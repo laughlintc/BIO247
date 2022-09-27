@@ -27,4 +27,4 @@ rowsToRemove <- which(MachineRead_output$uniqueNumID == 1)
 MachineRead_output2 <- MachineRead_output[-c(rowsToRemove),]
 
 
-## GIT.hub
+## GIT
