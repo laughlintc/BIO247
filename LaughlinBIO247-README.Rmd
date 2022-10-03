@@ -1,0 +1,147 @@
+---
+title: "README"
+author: "Ty"
+date: '2022-09-12'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# BIO247
+
+This README outlines the materials, in BIO247: Introduction to Bioinformatics, relating to an assignment, an exam, the final project, or the syllabus.
+
+## Lab
+***
+
+This folder contains all materials associated with the lab portion of the BIO247 class, including:
+
+- Outputs
+- Protocols
+
+
+
+### Outputs
+
+This folder houses (or will house) documents which each contain the report for a given lab or any other outputs from tasks completed during each lab. Lab reports are name by the following convention:
+
+- LaughlinBIO247-Lab#.docx/.pdf
+
+Remaining lab outputs will be assigned the name described in the lab protocol. One such example is:
+
+- Dataset_S1.txt
+  - This is practice data downloaded from github, for Chapter 8 of Bioinformatics Data Skills by Vince Buffalo, at 3:36 PM of September 12, 2022, for lab #2. It includes data on SNPs and diversity, among other factors, described in the column headers, for human chromosome 20.
+
+
+### Protocols
+
+This folder houses (or will house) .pdf files which each contain an overview for the given lab, the instructions to complete the given lab, and the instructions/rubric for the lab report. Files are sourced from the BIO247: Introduction to Bioinformatics professor, Dr. Casey Hansen, and are named by the following convention:
+
+- BIO247_Lab_#.pdf
+
+
+
+## Lecture
+***
+
+This folder contains all materials associated with the lecture portion of the BIO247 class, including:
+
+- Exams
+- Reading Assignments
+
+### Exams
+
+This folder houses (or will house) all materials associated with the exams for the BIO247 class, including:
+
+- Exam Materials
+- Exam Submissions
+
+
+#### Exam Materials
+
+This folder houses (or will house) all materials needed for exams. Files are sourced from the BIO247: Introduction to Bioinformatics professor, Dr. Casey Hansen, and retain the name given to them by the professor.
+
+#### Exam Submissions
+
+This folder houses (or will house) all submissions for exams. Exam submissions will be named by the following convention:
+
+- LaughlinBIO247-Exam#Submission.docx/.pdf
+
+
+### Reading Assignments
+
+This folder houses (or will house) all materials associated with the reading assignments for the BIO247 class, including:
+
+- Assignment Submissions
+- Readings
+
+
+#### Assignment Submissions
+
+This folder houses (or will house) all submissions for the reading assignments for the BIO247 class. Exam submissions will be named by the following convention:
+
+- LaughlinBIO247-ReadingAssignment#.docx/.pdf
+
+#### Readings
+
+This folder houses (or will house) all readings for the reading assignments for the BIO247 class. Files are sourced from the BIO247: Introduction to Bioinformatics professor, Dr. Casey Hansen, and retain the name given to them by the professor.
+
+
+## Project
+***
+
+This folder contains all materials associated with the final project for the BIO247 class.
+
+### Project Data
+
+This folder is made to contain the raw data used in the final project.
+
+### Project Debug Report
+
+This folder is made to contain the debug report for the final project.
+
+### Project Poster
+
+This folder is made to contain the poster made to present the final project.
+
+### Project Proposal
+
+This folder is made to contain the project proposal for the final project.
+
+### Project Report
+
+This folder is made to contain the written report for the final project.
+
+### Project Rubric
+
+This folder is made to contain the rubric for the final project. File is sourced from the BIO247: Introduction to Bioinformatics professor, Dr. Casey Hansen, and retains the name given to it by the professor.
+
+## Syllabus
+***
+
+This folder contains the syllabus for the BIO247 class. The syllabus gives an overview of the course, along with other information necessary to complete the course. File is sourced from the BIO247: Introduction to Bioinformatics professor, Dr. Casey Hansen, and is named:
+
+- BIO247_syllabus.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

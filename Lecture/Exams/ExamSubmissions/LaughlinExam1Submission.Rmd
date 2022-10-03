@@ -1,0 +1,88 @@
+---
+title: "LaughlinExam1"
+author: "Ty"
+date: '2022-09-29'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Part 1 - Written
+
+## Problem 1
+
+Having a robust study means that the results can be found in and applied to a wide variety of circumstances and still be found true. Robustness accounts for variability. Having a reproducible study means that near identical results can be found if the same procedures were taken, in similar conditions, as the initial study. Reproducibility relies on many similarities between the initial study and the reproduction.
+
+## Problem 2
+
+In packet.
+
+## Problem 3
+
+This study could be reproducible, but it would not robust. Should another researcher send out the same survey to the same public university in the same southeastern US state, the undergraduate student responses should be very similar. More information about how the survey was distributed would be needed to ensure reproducibility. Another researcher would need to know if the survey was sent to all students, or if a specific sample size was selected. The specific wording of the questions asked would also be needed, to ensure reproducibility. This study is not robust. The study claims to be investigating public attitudes of snakes, but only collects the attitudes of undergraduate students at the same public university, within one southeastern US state. The southeastern US has more snakes than most other regions of the US. Due to the increased presence of snakes in the region where the survey is being taken, people may respond differently than those in a northern climate with fewer snakes. Additionally, the survey only collected undergraduate responses. Those not in college generally are older and/or have different perspectives than those in college. Different results could definitely be found if a more diverse sample was taken.
+
+## Problem 4
+
+This study could be both reproducible and robust. It was indicated where the datasets were downloaded from, allowing other researchers to use the same data. It would be more reproducible to indicate what version of the datasets were downloaded in case the datasets get updated by the time another researcher tries to use them. They cited where the preprocessing steps were taken from, but could have also included what these actual steps were to increase reproducibility. Including all the types of analyses completed on the data helps to increase the ability of others to find the same results from the data. Including all the steps that were completed to analyze the data increases reproducuibilty, but the actual code should be released to further ensure reproducibility. So long as the researchers only use their results to discuss liver cell cancers, the study should be robust. 
+
+
+# Part 2 - Practical
+
+## Problem 6
+```{r cars}
+interact <- rep("interactions",25)
+suffixes <- c("1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1","0", "1")
+interact2 <- paste(interact, suffixes, sep = "_")
+print(interact2)
+```
+
+## Problem 7
+```{r}
+library(ggplot2)
+
+ggplot(GBM_data) + geom_density(aes(x=Total.Score), fill = "black")
+```
+
+## Problem 8
+
+I used indexing to only take the first 226 interactions in the dataset. I chose these interactions because they are the interactions that are found beyond the initial large peaks in the original density plot. This implies that these interactions have some sort of significance, not necessarily in a statistics context, compared to the majority of interactions that occur within the initial peak.I separated these interactions into their own dataframe to look at them alone. Creating a new dataframe, containing only the scores that stand out, with indexing allows me to quickly decide the cutoff, based on the total scores.
+```{r}
+GBM_data_discretized <- GBM_data[1:226,]
+
+ggplot(GBM_data_discretized) + geom_density(aes(x=Total.Score), fill = "black")
+```
+
+## Problem 9
+
+This solution was modeled after the .R script created for Lab 4 of BIO247.
+
+```{r}
+GBM_data_discretized$`Paper.ID` <- gsub("\\[", "", GBM_data_discretized$`Paper.ID`)
+GBM_data_discretized$`Paper.ID` <- gsub("\\'", "", GBM_data_discretized$`Paper.ID`)
+GBM_data_discretized$`Paper.ID` <- gsub("\\]", "", GBM_data_discretized$`Paper.ID`)
+GBM_data_discretized$`Paper.ID` <- gsub(" ", "", GBM_data_discretized$`Paper.ID`)
+
+
+paperID <- c()
+
+
+for (each in GBM_data_discretized$Paper.ID) {
+  
+  paperID <- unlist(strsplit(each, ","))
+  
+  rowNumbers <- which(each == GBM_data_discretized$Paper.ID)
+  
+  GBM_data_discretized$uniqueNumID[rowNumbers] <- length(unique(paperID))
+  
+}
+
+
+rowsToRemove <- which(GBM_data_discretized$uniqueNumID == 1)
+
+GBM_data_unique <- GBM_data_discretized[-c(rowsToRemove),]
+
+print("Unique # of Papers:")
+print(length(GBM_data_unique[,2]))
+
+```
