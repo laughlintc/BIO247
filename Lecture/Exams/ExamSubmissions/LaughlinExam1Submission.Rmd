@@ -5,6 +5,8 @@ date: '2022-09-29'
 output: html_document
 ---
 
+## Note that this was not the final copy of the submission. Find Laughlin_Exam1.Rmd for submitted copy
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
