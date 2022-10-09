@@ -8,16 +8,16 @@ MachineRead_output$`Paper.ID` <- gsub("\\'", "", MachineRead_output$`Paper.ID`)
 MachineRead_output$`Paper.ID` <- gsub("\\]", "", MachineRead_output$`Paper.ID`)
 MachineRead_output$`Paper.ID` <- gsub(" ", "", MachineRead_output$`Paper.ID`)
 
-#This creates a new empty vector to store the individual paper IDs in later
+#This creates a new empty vector to store the individual paper IDs in later on in code
 paperID <- c()
 
-#This for loop repeates for each row in the 
+#This for loop repeats for each row in the Paper.ID column
 for (each in MachineRead_output$Paper.ID) {
-  #This puts each of the inidvidual paper IDs into the previously made vector
+  #This puts each of the individual paper IDs into the previously made vector
   paperID <- unlist(strsplit(each, ","))
-  #this creates vector with the row numbers of each paper ID
+  #this creates a vector with the row numbers of each paper ID
   rowNumbers <- which(each == MachineRead_output$Paper.ID)
-  #This creates a column saying how many papers that interaction has
+  #This creates a column containing how many papers each interaction has
   MachineRead_output$uniqueNumID[rowNumbers] <- length(unique(paperID))
   
 }
