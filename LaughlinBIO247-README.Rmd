@@ -39,7 +39,7 @@ Remaining lab outputs will be assigned the name described in the lab protocol. O
 
 This folder houses (or will house) .pdf files which each contain an overview for the given lab, the instructions to complete the given lab, and the instructions/rubric for the lab report. Files are sourced from the BIO247: Introduction to Bioinformatics professor, Dr. Casey Hansen, and are named by the following convention:
 
-- BIO247_Lab_#.pdf
+- BIO247Lab#.pdf
 
 
 
@@ -67,7 +67,7 @@ This folder houses (or will house) all materials needed for exams. Files are sou
 
 This folder houses (or will house) all submissions for exams. Exam submissions will be named by the following convention:
 
-- LaughlinBIO247-Exam#Submission.docx/.pdf
+- Laughlin_Exam#.Rmd/.pdf/.html
 
 
 ### Reading Assignments
@@ -82,7 +82,7 @@ This folder houses (or will house) all materials associated with the reading ass
 
 This folder houses (or will house) all submissions for the reading assignments for the BIO247 class. Exam submissions will be named by the following convention:
 
-- LaughlinBIO247-ReadingAssignment#.docx/.pdf
+- LaughlinReading#.docx/.pdf
 
 #### Readings
 
