@@ -40,7 +40,7 @@ print(interact2)
 
 ## Problem 7
 
-A density plot was to be created using the ggplot2 package, which first needed to be open. Then the datafram was opened and saved to the environment. Then the total score column was used to create the density plot.
+A density plot was to be created using the ggplot2 package, which first needed to be open. Then the data frame was opened and saved to the environment. Then the total score column was used to create the density plot.
 ```{r}
 library(ggplot2)
 GBM_data <- read.csv("GBM_data.csv")
@@ -49,7 +49,7 @@ ggplot(GBM_data) + geom_density(aes(x=Total.Score), fill = "black")
 
 ## Problem 8
 
-I used indexing to only take the first 226 interactions in the dataset. I chose these interactions because they are the interactions that are found beyond the initial large peak in the original density plot. This implies that these interactions have some sort of significance, not necessarily in a statistics context, compared to the majority of interactions that occur within the initial peak.I separated these interactions into their own dataframe to look at them alone. Creating a new dataframe, containing only the scores that stand out, with indexing allows me to quickly decide the cutoff, based on the total scores.I then created a new density plot using only these separated interactions.
+I used indexing to only take the first 226 interactions in the data set. I chose these interactions because they are the interactions that are found beyond the initial large peak in the original density plot. This implies that these interactions have some sort of significance, not necessarily in a statistics context, compared to the majority of interactions that occur within the initial peak.I separated these interactions into their own data frame to look at them alone. Creating a new data frame, containing only the scores that stand out, with indexing allows me to quickly decide the cutoff, based on the total scores.I then created a new density plot using only these separated interactions.
 ```{r}
 GBM_data_discretized <- GBM_data[1:226,]
 
