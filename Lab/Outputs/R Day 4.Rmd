@@ -5,6 +5,8 @@ date: '2022-09-20'
 output: html_document
 ---
 
+
+This sets up th various color options for shirt, with hashtags in front of all but one color options at a time.
 ```{r}
 #shirt <- "red"
 #shirt <- "blue"
@@ -13,7 +15,7 @@ shirt <- "yellow"
 ```
 
 
-
+This gives an example of how to use and set up if/else statements in r
 ```{r}
 if (shirt == "red") {
   print("eat eggs")
@@ -28,12 +30,12 @@ if (shirt == "red") {
 }
 ```
 
-
+This selects one random number between 1 and 1000
 ```{r}
 stop <- sample (1:1000, 1)
 ```
 
-
+This gives an example of a while loop, which runs until it reaches the random number that was previously selected
 ```{r}
 num = 0
 while (num < stop){
@@ -45,12 +47,6 @@ print("Pop goes the weasel")
 
 
 
-Counting Papers
-
-```{r}
-PaperIDs <- unlist(Test_V_output$Paper.ID)
-UniquePapers <- strsplit(PaperIDs, ",")
-```
 
 
 
