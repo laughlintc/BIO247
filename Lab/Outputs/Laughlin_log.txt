@@ -1,0 +1,137 @@
+commit cd2d708ce4a461af020219f1324b225e83194598
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 22:16:05 2022 +0000
+
+    Updated .html README after naming conventions were updated in the .Rmd README.
+
+commit 8d207f459d2b1193cf314049a90f9bd317f99f9b
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 22:13:47 2022 +0000
+
+    Removed .html copy of README from repository
+
+commit a6ac230605a8653dbb4a74863d92a52ca7cf7d5e
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 22:12:40 2022 +0000
+
+    README was updated to have accurate naming conventions for files used in BIO247.
+
+commit 6d91916399f5eee7d3cc8960629e2748425fcbb8
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 22:06:12 2022 +0000
+
+    Code descriptions were updated for spelling errors
+
+commit 4dbb86efe6ca551759d139f7d15ed8da1359a653
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 22:04:39 2022 +0000
+
+    Message was added stating that this file was not the file submitted for the exam.
+
+commit da71988bf9c5ec5efb1d7c4a5588a85bc6dfa4c4
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 22:01:07 2022 +0000
+
+    Spelling errors in code descriptions were fixed.
+
+commit 82b8f0663ad9c23ec4f5bf15d3c1400fd511431b
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 21:53:04 2022 +0000
+
+    Removed a copy of a pre-existing file
+
+commit 384b8305dfdfeb8765f89e6f68310186f79d4ace
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 21:50:21 2022 +0000
+
+    Descriptions of code were added. Half complete code for the unique papers problem were removed as complete versions exist in other files.
+
+commit c9949f7b5abc83e740c759a8151e13897ba5e15a
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 21:42:24 2022 +0000
+
+    Removed a copy of another file
+
+commit 92af858987c9d3a5b4f6709d6ba8738b935b6e81
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 21:08:26 2022 +0000
+
+    Spelling errors and missing info in comments were fixed
+
+commit a4504612e1fd5a290b3127c4f2aafd42aaab156c
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 21:05:42 2022 +0000
+
+    Removed copies of the same file for Lab 4
+
+commit ffe17b900b76da723dbef7ac7769134389c66fba
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 21:02:05 2022 +0000
+
+    Comments were updated to be more concise. Spelling errors were also fixed in comments.
+
+commit 4a7271be0f6308bc48fd518bef362c393815b4ed
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 20:55:48 2022 +0000
+
+    This removed non-code file from tracking
+
+commit b3ca64b3566591c3ae0cd5185a87364c34327c06
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 20:51:57 2022 +0000
+
+    Removed non-code file from tracking
+
+commit dc5a2019a249cfd7c284f87bc6f16323cb2757d7
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 20:45:18 2022 +0000
+
+    Added more to code descriptions to make purpose and function of code more clear
+
+commit b67b3c4564b87e4459fdca43b9edb5af0f823c44
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 20:41:37 2022 +0000
+
+    Changed Knit output to only be a .pdf, removing the .html output
+
+commit 802e4d430b846d0b885d4e46427bafd9757dd82b
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Sun Oct 9 20:34:06 2022 +0000
+
+    Added descriptions of the code in the markdown file and changed the name of the file to remove spaces
+
+commit e3144af7c7d681746bb8685ecb473aefe3401c5c
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Mon Oct 3 19:33:09 2022 +0000
+
+    initial commit
+
+commit 0f7c484525753bc7084649e6a807f2a2f54acdc7
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Tue Sep 27 16:32:48 2022 +0000
+
+    This added the .gitignore file
+
+commit a60ca3a8e60b674a45d5293a115bb1dc9955666c
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Tue Sep 27 16:22:18 2022 +0000
+
+    Created .gitignore file
+
+commit 779d397162e946be8afe1869b79625608e9b772b
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Tue Sep 27 16:11:50 2022 +0000
+
+    This removed the '.hub'
+
+commit 634f07d6e98c255840c08dcd80fb1c08baf901ab
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Tue Sep 27 16:03:58 2022 +0000
+
+    Modified file with comment at bottom saying GIT.hub
+
+commit 863d7b3eae1b8d325378b25a51b45fd2c548263f
+Author: Ty Laughlin <tycamlau@yahoo.com>
+Date:   Tue Sep 27 15:59:48 2022 +0000
+
+    This is the script for Lab 4
