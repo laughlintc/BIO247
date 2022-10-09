@@ -73,7 +73,7 @@ split_ID <- unlist(strsplit(Test_V_output$Paper.ID, ","))
 length(unique(split_ID))
 ```
 
-Unnecessary characters from each piece of data in the "Paper.ID" column, using the gsub() function 4 times. Each usage of gsub() substituted an unnecessary character with "", or nothing, effectively removing the unnecessary characters. Note that the gsub() functions were run in a chunk using include=FALSE to prevent excessive and unnecessary intermediate outputs from being displayed. To ensure that that it is still known that the calls to gsub() were there,they were placed in a the chunk with the other code, behind comments.
+Unnecessary characters from each piece of data in the "Paper.ID" column, using the gsub() function 4 times. Each usage of gsub() substituted an unnecessary character with "", or nothing, effectively removing the unnecessary characters. Note that the gsub() functions were run in a chunk using include=FALSE to prevent excessive and unnecessary intermediate outputs from being displayed. To ensure that that it is still known that the calls to gsub() were there,they were placed in a the chunk with the other code, behind comments. split_ID was created to hold the individual IDs in the Paper ID column. Then the quantity of unique IDs within split_ID was found and printed.
 
 ## Exercise 3: Vectorization
 ***
