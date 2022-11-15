@@ -1,0 +1,459 @@
+---
+title: "BIO-247 Project"
+author: "Jonathan Grabowski"
+date: "2022-11-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+```
+
+
+##Honeybees 2014
+```{r}
+#Load in data
+hb2014 <- read.csv("EB_visitation_honeybees_2014.csv")
+
+#Remove unnecessary columns to only have number of visitations per species columns remaining
+hb2014 <- subset(hb2014, select = -c(1:3))
+
+# placeholder for total number of visitation
+sumhb2014 <- c()
+
+for(each in hb2014) {
+  sumhb2014 <- append(sumhb2014, sum(each))
+}
+
+#Get column names
+namehb2014 <- c()
+
+#Creates a vector containing the column names from the original data file
+for(each in hb2014) {
+  namehb2014 <- colnames(hb2014, do.NULL = FALSE)
+}
+
+
+#Clean column names to only have genus and species
+
+#Creates vector to store each of the genera
+genushb2014 <- c()
+
+for (each in namehb2014) {
+  #Stores each Genus at a time after removing other unwanted name components
+  tempgenus <- unlist(strsplit(each, "\\."))[1]
+  #this creates a vector with the row numbers of each genus
+  rowNumbers <- which(each == namehb2014)
+  #Using the indexing of rownumbers, each genus is added to genushb2014 in the proper order
+  genushb2014[rowNumbers] <- tempgenus
+}
+
+#Creates vector to store each of the epithets
+epithethb2014 <- c()
+
+for (each in namehb2014) {
+  #Stores each epithet at a time after removing other unwanted name components
+  tempepithet <- unlist(strsplit(each, "\\."))[2]
+  #this creates a vector with the row numbers of each epithet
+  rowNumbers <- which(each == namehb2014)
+  #Using the indexing of rownumbers, each epithet is added to epithethb2014 in the proper order
+  epithethb2014[rowNumbers] <- tempepithet
+}
+
+#Combine genus and species for each flower into 1 data point per flower
+scientificNamehb2014 <- paste(genushb2014, epithethb2014)
+
+#Creates the dataframe that will be used to plot the means, with the means in one column and the Scientific names in the other
+plotDatahb2014 <- data.frame(
+  Number_of_Visits = sumhb2014,
+  ScientificNames = scientificNamehb2014
+)
+
+#Arbitrarily removes low number of visitations from the data
+plotDatahb2014 <- subset(plotDatahb2014, Number_of_Visits>130)
+
+#Attempt at new version of plotting
+ggplot(plotDatahb2014, aes(x= reorder(ScientificNames, -Number_of_Visits, FUN = sum), y= Number_of_Visits)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0)) +
+  geom_text(aes(x=1, y=12000, label="Stretch it"), vjust=-1) +
+  theme(axis.text.x = element_text(angle = 45, size = 9,color = "black", face = "plain", vjust = 1, hjust = 1),plot.margin = margin(10, 10, 10, 10)) + 
+  xlab("Scientific name") +
+  ylab("Number of visits")  
+
+```
+
+
+##Honeybees 2015
+```{r}
+hb2015 <- read.csv("EB_visitation_honeybees_2015.csv")
+
+#Remove unnecessary columns to only have number of visitations per species columns remaining
+hb2015 <- subset(hb2015, select = -c(1:3))
+
+# placeholder for total number of visitation
+sumhb2015 <- c()
+
+for(each in hb2015) {
+  sumhb2015 <- append(sumhb2015, sum(each))
+}
+
+#Get column names
+namehb2015 <- c()
+
+#Creates a vector containing the column names from the original data file
+for(each in hb2015) {
+  namehb2015 <- colnames(hb2015, do.NULL = FALSE)
+}
+
+
+#Clean column names to only have genus and species
+
+#Creates vector to store each of the genera
+genushb2015 <- c()
+
+for (each in namehb2015) {
+  #Stores each Genus at a time after removing other unwanted name components
+  tempgenus <- unlist(strsplit(each, "\\."))[1]
+  #this creates a vector with the row numbers of each genus
+  rowNumbers <- which(each == namehb2015)
+  #Using the indexing of rownumbers, each genus is added to genushb2014 in the proper order
+  genushb2015[rowNumbers] <- tempgenus
+}
+
+#Creates vector to store each of the epithets
+epithethb2015 <- c()
+
+for (each in namehb2015) {
+  #Stores each epithet at a time after removing other unwanted name components
+  tempepithet <- unlist(strsplit(each, "\\."))[2]
+  #this creates a vector with the row numbers of each epithet
+  rowNumbers <- which(each == namehb2015)
+  #Using the indexing of rownumbers, each epithet is added to epithethb2014 in the proper order
+  epithethb2015[rowNumbers] <- tempepithet
+}
+
+#Combine genus and species for each flower into 1 data point per flower
+scientificNamehb2015 <- paste(genushb2015, epithethb2015)
+
+#Creates the dataframe that will be used to plot the means, with the means in one column and the Scientific names in the other
+plotDatahb2015 <- data.frame(
+  Number_of_Visits = sumhb2015,
+  ScientificNames = scientificNamehb2015
+)
+
+#Arbitrarily removes low number of visitations from the data
+plotDatahb2015 <- subset(plotDatahb2015, Number_of_Visits>150)
+
+#Attempt at new version of plotting
+ggplot(plotDatahb2015, aes(x= reorder(ScientificNames, -Number_of_Visits, FUN = sum), y= Number_of_Visits)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0)) +
+  geom_text(aes(x=1, y=4000, label="Stretch it"), vjust=-1) +
+  theme(axis.text.x = element_text(angle = 45, size = 9,color = "black", face = "plain", vjust = 1, hjust = 1),plot.margin = margin(10, 10, 10, 10)) + 
+  xlab("Scientific name") +
+  ylab("Number of visits")  
+
+```
+
+
+##Honeybees 2016
+```{r}
+hb2016 <- read.csv("EB_visitation_honeybees_2016.csv")
+
+#Remove unnecessary columns to only have number of visitations per species columns remaining
+hb2016 <- subset(hb2016, select = -c(1:3))
+
+# placeholder for total number of visitation
+sumhb2016 <- c()
+
+for(each in hb2016) {
+  sumhb2016 <- append(sumhb2016, sum(each))
+}
+
+#Get column names
+namehb2016 <- c()
+
+#Creates a vector containing the column names from the original data file
+for(each in hb2016) {
+  namehb2016 <- colnames(hb2016, do.NULL = FALSE)
+}
+
+
+#Clean column names to only have genus and species
+
+#Creates vector to store each of the genera
+genushb2016 <- c()
+
+for (each in namehb2016) {
+  #Stores each Genus at a time after removing other unwanted name components
+  tempgenus <- unlist(strsplit(each, "\\."))[1]
+  #this creates a vector with the row numbers of each genus
+  rowNumbers <- which(each == namehb2016)
+  #Using the indexing of rownumbers, each genus is added to genushb2014 in the proper order
+  genushb2016[rowNumbers] <- tempgenus
+}
+
+#Creates vector to store each of the epithets
+epithethb2016 <- c()
+
+for (each in namehb2016) {
+  #Stores each epithet at a time after removing other unwanted name components
+  tempepithet <- unlist(strsplit(each, "\\."))[2]
+  #this creates a vector with the row numbers of each epithet
+  rowNumbers <- which(each == namehb2016)
+  #Using the indexing of rownumbers, each epithet is added to epithethb2014 in the proper order
+  epithethb2016[rowNumbers] <- tempepithet
+}
+
+#Combine genus and species for each flower into 1 data point per flower
+scientificNamehb2016 <- paste(genushb2016, epithethb2016)
+
+#Creates the dataframe that will be used to plot the means, with the means in one column and the Scientific names in the other
+plotDatahb2016 <- data.frame(
+  Number_of_Visits = sumhb2016,
+  ScientificNames = scientificNamehb2016
+)
+
+#Arbitrarily removes low number of visitations from the data
+plotDatahb2016 <- subset(plotDatahb2016, Number_of_Visits>15)
+
+#Attempt at new version of plotting
+ggplot(plotDatahb2016, aes(x= reorder(ScientificNames, -Number_of_Visits, FUN = sum), y= Number_of_Visits)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0)) +
+  geom_text(aes(x=1, y=800, label="Stretch it"), vjust=-1) +
+  theme(axis.text.x = element_text(angle = 45, size = 9,color = "black", face = "plain", vjust = 1, hjust = 1),plot.margin = margin(10, 10, 10, 10)) + 
+  xlab("Scientific name") +
+  ylab("Number of visits")  
+
+```
+
+
+##Wild bees 2014
+```{r}
+wb2014 <- read.csv("EB_visitation_wildbees_2014.csv")
+
+#Remove unnecessary columns to only have number of visitations per species columns remaining
+wb2014 <- subset(wb2014, select = -c(1:3))
+
+# placeholder for total number of visitation
+sumwb2014 <- c()
+
+for(each in wb2014) {
+  sumwb2014 <- append(sumwb2014, sum(each))
+}
+
+#Get column names
+namewb2014 <- c()
+
+#Creates a vector containing the column names from the original data file
+for(each in wb2014) {
+  namewb2014 <- colnames(wb2014, do.NULL = FALSE)
+}
+
+
+#Clean column names to only have genus and species
+
+#Creates vector to store each of the genera
+genuswb2014 <- c()
+
+for (each in namewb2014) {
+  #Stores each Genus at a time after removing other unwanted name components
+  tempgenus <- unlist(strsplit(each, "\\."))[1]
+  #this creates a vector with the row numbers of each genus
+  rowNumbers <- which(each == namewb2014)
+  #Using the indexing of rownumbers, each genus is added to genushb2014 in the proper order
+  genuswb2014[rowNumbers] <- tempgenus
+}
+
+#Creates vector to store each of the epithets
+epithetwb2014 <- c()
+
+for (each in namewb2014) {
+  #Stores each epithet at a time after removing other unwanted name components
+  tempepithet <- unlist(strsplit(each, "\\."))[2]
+  #this creates a vector with the row numbers of each epithet
+  rowNumbers <- which(each == namewb2014)
+  #Using the indexing of rownumbers, each epithet is added to epithethb2014 in the proper order
+  epithetwb2014[rowNumbers] <- tempepithet
+}
+
+#Combine genus and species for each flower into 1 data point per flower
+scientificNamewb2014 <- paste(genuswb2014, epithetwb2014)
+
+#Creates the dataframe that will be used to plot the means, with the means in one column and the Scientific names in the other
+plotDatawb2014 <- data.frame(
+  Number_of_Visits = sumwb2014,
+  ScientificNames = scientificNamewb2014
+)
+
+#Arbitrarily removes low number of visitations from the data
+plotDatawb2014 <- subset(plotDatawb2014, Number_of_Visits>10)
+
+#Attempt at new version of plotting
+ggplot(plotDatawb2014, aes(x= reorder(ScientificNames, -Number_of_Visits, FUN = sum), y= Number_of_Visits)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0)) +
+  geom_text(aes(x=1, y=12000, label="Stretch it"), vjust=-1) +
+  theme(axis.text.x = element_text(angle = 45, size = 9,color = "black", face = "plain", vjust = 1, hjust = 1),plot.margin = margin(10, 10, 10, 10)) + 
+  xlab("Scientific name") +
+  ylab("Number of visits")  
+
+```
+
+
+##Wild bees 2015
+```{r}
+wb2015 <- read.csv("EB_visitation_wildbees_2015.csv")
+
+#Remove unnecessary columns to only have number of visitations per species columns remaining
+wb2015 <- subset(wb2015, select = -c(1:3))
+
+# placeholder for total number of visitation
+sumwb2015 <- c()
+
+for(each in wb2015) {
+  sumwb2015 <- append(sumwb2015, sum(each))
+}
+
+#Get column names
+namewb2015 <- c()
+
+#Creates a vector containing the column names from the original data file
+for(each in wb2015) {
+  namewb2015 <- colnames(wb2015, do.NULL = FALSE)
+}
+
+
+#Clean column names to only have genus and species
+
+#Creates vector to store each of the genera
+genuswb2015 <- c()
+
+for (each in namewb2015) {
+  #Stores each Genus at a time after removing other unwanted name components
+  tempgenus <- unlist(strsplit(each, "\\."))[1]
+  #this creates a vector with the row numbers of each genus
+  rowNumbers <- which(each == namewb2015)
+  #Using the indexing of rownumbers, each genus is added to genushb2014 in the proper order
+  genuswb2015[rowNumbers] <- tempgenus
+}
+
+#Creates vector to store each of the epithets
+epithetwb2015 <- c()
+
+for (each in namewb2015) {
+  #Stores each epithet at a time after removing other unwanted name components
+  tempepithet <- unlist(strsplit(each, "\\."))[2]
+  #this creates a vector with the row numbers of each epithet
+  rowNumbers <- which(each == namewb2015)
+  #Using the indexing of rownumbers, each epithet is added to epithethb2014 in the proper order
+  epithetwb2015[rowNumbers] <- tempepithet
+}
+
+#Combine genus and species for each flower into 1 data point per flower
+scientificNamewb2015 <- paste(genuswb2015, epithetwb2015)
+
+#Creates the dataframe that will be used to plot the means, with the means in one column and the Scientific names in the other
+plotDatawb2015 <- data.frame(
+  Number_of_Visits = sumwb2015,
+  ScientificNames = scientificNamewb2015
+)
+
+#Arbitrarily removes low number of visitations from the data
+plotDatawb2015 <- subset(plotDatawb2015, Number_of_Visits>150)
+
+#Attempt at new version of plotting
+ggplot(plotDatawb2015, aes(x= reorder(ScientificNames, -Number_of_Visits, FUN = sum), y= Number_of_Visits)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0)) +
+  geom_text(aes(x=1, y=4000, label="Stretch it"), vjust=-1) +
+  theme(axis.text.x = element_text(angle = 45, size = 9,color = "black", face = "plain", vjust = 1, hjust = 1),plot.margin = margin(10, 10, 10, 10)) + 
+  xlab("Scientific name") +
+  ylab("Number of visits")  
+
+```
+
+
+##Wild bees 2016
+```{r}
+wb2016 <- read.csv("EB_visitation_wildbees_2016.csv")
+
+#Remove unnecessary columns to only have number of visitations per species columns remaining
+wb2016 <- subset(wb2016, select = -c(1:3))
+
+# placeholder for total number of visitation
+sumwb2016 <- c()
+
+for(each in wb2016) {
+  sumwb2016 <- append(sumwb2016, sum(each))
+}
+
+#Get column names
+namewb2016 <- c()
+
+#Creates a vector containing the column names from the original data file
+for(each in wb2016) {
+  namewb2016 <- colnames(wb2016, do.NULL = FALSE)
+}
+
+#Clean column names to only have genus and species
+
+#Creates vector to store each of the genera
+genuswb2016 <- c()
+
+for (each in namewb2016) {
+  #Stores each Genus at a time after removing other unwanted name components
+  tempgenus <- unlist(strsplit(each, "\\."))[1]
+  #this creates a vector with the row numbers of each genus
+  rowNumbers <- which(each == namewb2016)
+  #Using the indexing of rownumbers, each genus is added to genushb2014 in the proper order
+  genuswb2016[rowNumbers] <- tempgenus
+}
+
+#Creates vector to store each of the epithets
+epithetwb2016 <- c()
+
+for (each in namewb2016) {
+  #Stores each epithet at a time after removing other unwanted name components
+  tempepithet <- unlist(strsplit(each, "\\."))[2]
+  #this creates a vector with the row numbers of each epithet
+  rowNumbers <- which(each == namewb2016)
+  #Using the indexing of rownumbers, each epithet is added to epithethb2014 in the proper order
+  epithetwb2016[rowNumbers] <- tempepithet
+}
+
+#Combine genus and species for each flower into 1 data point per flower
+scientificNamewb2016 <- paste(genuswb2016, epithetwb2016)
+
+#Creates the dataframe that will be used to plot the means, with the means in one column and the Scientific names in the other
+plotDatawb2016 <- data.frame(
+  Number_of_Visits = sumwb2016,
+  ScientificNames = scientificNamewb2016
+)
+
+#Arbitrarily removes low number of visitations from the data
+plotDatawb2016 <- subset(plotDatawb2016, Number_of_Visits>50)
+
+#Attempt at new version of plotting
+ggplot(plotDatawb2016, aes(x= reorder(ScientificNames, -Number_of_Visits, FUN = sum), y= Number_of_Visits)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0)) +
+  geom_text(aes(x=1, y=800, label="Stretch it"), vjust=-1) +
+  theme(axis.text.x = element_text(angle = 45, size = 9,color = "black", face = "plain", vjust = 1, hjust = 1),plot.margin = margin(10, 10, 10, 10)) + 
+  xlab("Scientific name") +
+  ylab("Number of visits")  
+
+```
+
